@@ -5,12 +5,5 @@ python:
   - "3.4"
   - "3.5"
   - "3.6"
-# command to install dependencies
-#install: "pip install -r requirements-dev.txt"
-# command to run tests
 script:
-#  TODO: run unittests
-  - export PYTHONPATH=.:$PYTHONPATH
-  - python examples/handle_error.py
-  - python examples/handle_fail.py
-  - python examples/real_life.py
+  - python test_unittest_utils.py
