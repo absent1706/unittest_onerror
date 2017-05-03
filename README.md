@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/absent1706/unittest_onerror.svg?branch=master)](https://travis-ci.org/absent1706/unittest_onerror)
+[![PyPI version](https://img.shields.io/pypi/v/unittest_onerror.svg)](https://pypi.python.org/pypi/unittest_onerror)
+[![Python versions](https://img.shields.io/pypi/pyversions/unittest_onerror.svg)](https://travis-ci.org/absent1706/unittest_onerror)
+
 # Error and fail catching for Python unittest module
 **For now, only Python 2 supported!**
 
