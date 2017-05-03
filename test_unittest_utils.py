@@ -7,9 +7,8 @@ from unittest_utils import decorate_tests_with, handle_error, \
 
 class Test(unittest.TestCase):
     def run_testcase(self, testcase):
-        suite = unittest.TestSuite()
         suite = unittest.TestLoader().loadTestsFromTestCase(testcase)
-        runner = unittest.TextTestRunner().run(suite)
+        unittest.TextTestRunner().run(suite)
 
     def test_handle_error(self):
         mock = MagicMock()
