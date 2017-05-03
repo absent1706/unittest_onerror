@@ -4,12 +4,14 @@ from mock import MagicMock
 from unittest_onerror import decorate_tests_with, on_error, on_fail
 
 
-class Test(unittest.TestCase):
+class TestBase(unittest.TestCase):
     def run_testcase(self, testcase):
         suite = unittest.TestLoader().loadTestsFromTestCase(testcase)
         unittest.TextTestRunner().run(suite)
 
-    def test_on_error(self):
+
+class TestOnError(TestBase):
+    def test(self):
         mock = MagicMock()
 
         class TestCase(unittest.TestCase):
@@ -20,6 +22,8 @@ class Test(unittest.TestCase):
         self.run_testcase(TestCase)
         mock.assert_called_once()
 
+
+class TestOnFail(TestBase):
     def test_on_fail(self):
         mock = MagicMock()
 
@@ -31,7 +35,9 @@ class Test(unittest.TestCase):
         self.run_testcase(TestCase)
         mock.assert_called_once()
 
-    def test_decorate_tests_with(self):
+
+class TestDecorateTestsWith(TestBase):
+    def test(self):
         error_mock = MagicMock()
         fail_mock = MagicMock()
 
