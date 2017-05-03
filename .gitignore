@@ -2,3 +2,8 @@
 
 .cache/
 .idea/
+
+/dist/
+/*.egg-info
+/*.egg
+.pypirc
