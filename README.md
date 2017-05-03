@@ -43,6 +43,17 @@ class MyTestCase(unittest.TestCase):
 ![icon](http://i.piccy.info/i9/c7168c8821f9e7023e32fd784d0e2f54/1489489664/1113/1127895/rsz_18_256.png)
 See [full example](examples/on_error.py)
 
+
+### Reraise error
+By default, caught error [re-raises](https://github.com/absent1706/unittest_onerror/blob/master/unittest_onerror.py#L48).
+
+You can disable re-raising, so `unittest` runner will treat test as "OK":
+```python
+    @on_error(my_error_handler, reraise=False)
+    def test_which_errors(self):
+        # ...
+```
+
 ## Failure handling
 Unlike error handling, failures can be caught easily by rewriting `unittest.TestCase.fail` method.
 But we anyway added failure handling to make your life easier:

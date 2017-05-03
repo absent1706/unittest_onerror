@@ -11,6 +11,11 @@ class MyTestCase(unittest.TestCase):
     def test_which_fails(self):
         self.assertEqual(0, 1)
 
+    # error will not be re-raised => test will be "OK"
+    @on_fail(my_fail_handler, reraise=False)
+    def test_which_fails_no_reraise(self):
+        self.assertEqual(0, 1)
+
 
 if __name__ == 'main':
     unittest.main()

@@ -10,6 +10,11 @@ class MyTestCase(unittest.TestCase):
     def test_which_errors(self):
         raise ValueError('Some unexpected error')
 
+    # error will not be re-raised => test will be "OK"
+    @on_error(my_error_handler, reraise=False)
+    def test_which_errors_no_reraise(self):
+        raise ValueError('This error will not re-raise')
+
 
 if __name__ == '__main__':
     unittest.main()
