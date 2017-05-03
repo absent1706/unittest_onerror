@@ -72,9 +72,6 @@ class TestCase(unittest.TestCase):
 
 ```                                                       
 
-![icon](http://i.piccy.info/i9/c7168c8821f9e7023e32fd784d0e2f54/1489489664/1113/1127895/rsz_18_256.png)
-See [full example](examples/real_life.py)
-
 > Note about `print()` in handlers.
 >
 > Standard Python unittest doesn't sort our output by tests,
@@ -83,3 +80,6 @@ See [full example](examples/real_life.py)
 > So we recommend you to use `nosetests` or `pytest`,
 >  so [your output will be sorted by test](http://www.qopy.me/dY_60Yj1SSyzds7fJNyk3w)
  
+![icon](http://i.piccy.info/i9/c7168c8821f9e7023e32fd784d0e2f54/1489489664/1113/1127895/rsz_18_256.png)
+See [full example](examples/real_life.py)
+
