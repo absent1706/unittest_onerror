@@ -30,14 +30,14 @@ def my_error_handler(testcase, exception=None):
 
 
 class MyTestCase(unittest.TestCase):
-    @handle_error(my_error_handler)
+    @on_error(my_error_handler)
     def test_which_errors(self):
         raise ValueError('Some unexpected error')
 
 ```
 
 ![icon](http://i.piccy.info/i9/c7168c8821f9e7023e32fd784d0e2f54/1489489664/1113/1127895/rsz_18_256.png)
-See [full example](examples/handle_error.py)
+See [full example](examples/on_error.py)
 
 ## Failure handling
 Unlike error handling, failures can be caught easily by rewriting `unittest.TestCase.fail` method.
@@ -49,12 +49,12 @@ def my_fail_handler(testcase, exception=None):
 
 
 class MyTestCase(unittest.TestCase):
-    @handle_fail(my_fail_handler)
+    @on_fail(my_fail_handler)
     def test_which_fails(self):
         self.assertEqual(0, 1)
 ```
 ![icon](http://i.piccy.info/i9/c7168c8821f9e7023e32fd784d0e2f54/1489489664/1113/1127895/rsz_18_256.png)
-See [full example](examples/handle_fail.py)
+See [full example](examples/on_fail.py)
 
 
 ## Real-life: decorate all tests
@@ -62,8 +62,8 @@ In real life, you have a lot of test methods, and it's tedious to add decorator 
 So you have quick way to decorate all test methods you want:
          
 ```python
-@decorate_tests_with(handle_fail(my_fail_handler))
-@decorate_tests_with(handle_error(my_error_handler))
+@decorate_tests_with(on_fail(my_fail_handler))
+@decorate_tests_with(on_error(my_error_handler))
 class TestCase(unittest.TestCase):
     def test_one(self):
         # ...

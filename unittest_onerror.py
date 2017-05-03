@@ -21,7 +21,7 @@ def decorate_tests_with(decorator):
     return decorate
 
 
-def handle_error(handler, reraise=True):
+def on_error(handler, reraise=True):
     """
     Generic error handler for unittest test methods.
     :param handler: your error handler which accepts 2 params: 
@@ -52,7 +52,7 @@ def handle_error(handler, reraise=True):
     return real_decorator
 
 
-def handle_fail(handler, reraise=True):
+def on_fail(handler, reraise=True):
     """
     Generic fail handler for unittest test methods.
     :param handler: your error handler which accepts 2 params: 

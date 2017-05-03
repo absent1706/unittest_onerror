@@ -1,5 +1,5 @@
 import unittest
-from unittest_utils import handle_fail
+from unittest_onerror import on_fail
 
 
 def my_fail_handler(testcase, exception=None):
@@ -7,7 +7,7 @@ def my_fail_handler(testcase, exception=None):
 
 
 class MyTestCase(unittest.TestCase):
-    @handle_fail(my_fail_handler)
+    @on_fail(my_fail_handler)
     def test_which_fails(self):
         self.assertEqual(0, 1)
 

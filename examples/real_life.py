@@ -1,7 +1,7 @@
 import unittest
 
-from unittest_utils import decorate_tests_with, handle_error, \
-    handle_fail
+from unittest_onerror import decorate_tests_with, on_error, \
+    on_fail
 
 """
 Note about print() in handlers: 
@@ -33,18 +33,18 @@ def my_fail_handler(testcase, exception=None):
 That's how you code will be like without @decorate_tests_with
 """
 class MyTestCase1(unittest.TestCase):
-    @handle_fail(my_fail_handler)
-    @handle_error(my_error_handler)
+    @on_fail(my_fail_handler)
+    @on_error(my_error_handler)
     def test_which_errors(self):
         raise ValueError('Some unexpected error')
 
-    @handle_fail(my_fail_handler)
-    @handle_error(my_error_handler)
+    @on_fail(my_fail_handler)
+    @on_error(my_error_handler)
     def test_which_fails(self):
         self.assertEqual(0, 1)
 
-    @handle_fail(my_fail_handler)
-    @handle_error(my_error_handler)
+    @on_fail(my_fail_handler)
+    @on_error(my_error_handler)
     def test_which_passes(self):
         pass
 
@@ -53,14 +53,14 @@ class MyTestCase1(unittest.TestCase):
 With awesome @decorate_tests_with, you don't need 
 to add decorators before each test!
 """
-@decorate_tests_with(handle_fail(my_fail_handler))
-@decorate_tests_with(handle_error(my_error_handler))
+@decorate_tests_with(on_fail(my_fail_handler))
+@decorate_tests_with(on_error(my_error_handler))
 class MyTestCase2(unittest.TestCase):
     """
     No need of
     
-    @handle_fail(my_fail_handler)
-    @handle_error(my_error_handler)
+    @on_fail(my_fail_handler)
+    @on_error(my_error_handler)
     
     before each test method. Cool!
     """
