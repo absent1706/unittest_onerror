@@ -68,8 +68,8 @@ def handle_fail(handler, reraise=True):
                 return func(*args, **kwargs)
             except testcase.failureException as e:
                 handler(testcase, e)
-            if reraise:
-                raise
+                if reraise:
+                    raise
 
         return wrapper
 

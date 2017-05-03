@@ -1,4 +1,5 @@
 # Error and fail catching for Python unittest module
+**For now, only Python 2 supported!**
 
 ## Error handling
 Have you ever wanted to catch unittest errors?
